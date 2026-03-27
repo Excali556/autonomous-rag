@@ -43,3 +43,7 @@ Response:
 - Hybrid search
 - Response caching
 - Evaluation metrics
+
+## Demo
+
+![RAG API Demo](assets/demo.png)
