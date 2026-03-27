@@ -21,7 +21,7 @@ def run_ingestion():
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     chunks = text_splitter.split_documents(docs)
 
-    # Free HuggingFace Embeddings (384 Dimensions)
+    #HuggingFace Embeddings (384 Dimensions)
     embeddings = HuggingFaceEndpointEmbeddings(
         model="sentence-transformers/all-MiniLM-L6-v2",
         huggingfacehub_api_token=os.getenv("HUGGINGFACEHUB_API_TOKEN")
@@ -30,7 +30,7 @@ def run_ingestion():
     pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
     index_name = os.getenv("PINECONE_INDEX_NAME")
 
-    # Auto-create the index if it doesn't exist
+    #create index
     if index_name not in [idx.name for idx in pc.list_indexes()]:
         print(f"Creating index: {index_name} (384 dimensions)...")
         pc.create_index(

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # The Backend (Your existing FastAPI bot)
+  chatbot-api:
+    build: .
+    container_name: chatbot-api
+    env_file: .env
+    ports:
+      - "8000:8000"
+
+  # The Frontend (Streamlit)
+  frontend:
+    image: python:3.11-slim
+    container_name: chatbot-ui
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "8501:8501"
+    command: >
+      sh -c "pip install streamlit requests streamlit-lottie && 
+             streamlit run app.py --server.port 8501 --server.address 0.0.0.0"
+    depends_on:
+      - chatbot-api

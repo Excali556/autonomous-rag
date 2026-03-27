@@ -1,17 +1,19 @@
-# --- Core Framework ---
-langchain>=0.3.0
-langchain-community>=0.3.0
-langchain-core>=0.3.0
+# Core AI Framework
+langchain==1.2.10
+langchain-groq==1.1.2
+langchain-pinecone==0.2.13
+langchain-community==0.4.1
+langchain_huggingface
+streamlit-lottie
 
-# --- Free Model Integrations (2026) ---
-langchain-groq>=1.1.2
-langchain-huggingface>=0.1.0
+# Document Processing
+pypdf==6.7.0
 
-# --- Vector Database ---
-pinecone>=5.3.0
-langchain-pinecone>=0.2.0
+# Infrastructure & Utilities
+python-dotenv==1.2.1
+pinecone-client==6.0.0
+groq==0.37.1
 
-# --- Utilities ---
-python-dotenv>=1.2.0
-pypdf>=5.0.0
-sentence-transformers>=3.0.0
+# Web Server (For Step 2 of Day 2)
+fastapi==0.115.0
+uvicorn==0.30.0
